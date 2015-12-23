@@ -45,6 +45,7 @@ set mouse=a
 set textwidth=79
 set colorcolumn=+1
 
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 if exists('$TMUX')  " Support resizing in tmux
   if !has('nvim')

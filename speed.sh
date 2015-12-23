@@ -24,7 +24,7 @@ UP_DIFF=$((($UPDATED_UP - $ORIG_UP) / 2))
 DOWN_SPEED=$($NUMFORMAT --to=si --suffix=B --round=towards-zero $DOWN_DIFF)
 UP_SPEED=$($NUMFORMAT --to=si --suffix=B --round=towards-zero $UP_DIFF)
 
-# TODO: if bytes then force it to be KB, e.g. 0.x/s
+# TODO: if bytes then force it to be KB, e.g. 0.xKB/s
 
 # print result
-printf "up/down \e[32m%-5s %-5s" "$DOWN_SPEED/s" "$UP_SPEED/s"
+printf "up/down \e[92m%7s %7s" "$DOWN_SPEED/s" "$UP_SPEED/s"

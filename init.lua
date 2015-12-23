@@ -2,6 +2,8 @@ local application = require "mjolnir.application"
 local hotkey = require "mjolnir.hotkey"
 local window = require "mjolnir.window"
 local fnutils = require "mjolnir.fnutils"
+package.path = package.path .. ";" .. os.getenv("HOME") .. "/.mjolnir/?.lua"
+require "wm"
 
 hotkey.bind({"cmd", "ctrl"}, "R", function()
   local win = window.focusedwindow()
@@ -20,3 +22,4 @@ hotkey.bind({"cmd", "ctrl"}, "R", function()
 
   win:setframe(f)
 end)
+
