@@ -7,6 +7,7 @@ export EDITOR=vim
 [[ -n "$SSH_CLIENT" ]] || export DEFAULT_USER="my_username"
 alias reddy="redis-server /usr/local/etc/redis.conf"
 alias cat="ccat --bg=dark"
+alias vim="nvim"
 alias mong="mongod --config /usr/local/etc/mongod.conf"
 alias glog="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 plugins=(git)
