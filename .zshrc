@@ -31,14 +31,12 @@ watchy () {
   fswatch -0 $1 | xargs -0 -n 1 -I {} $2 {}
 }
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [[ -s `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
 
 eval $(thefuck --alias)
 
-# whatever... it's some issue with C-h seeming like <BS>
-infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
-tic $TERM.ti
+source /usr/local/share/chruby/chruby.sh
+
+chruby ruby-2.3

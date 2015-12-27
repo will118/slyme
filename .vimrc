@@ -47,6 +47,11 @@ set colorcolumn=+1
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+" ima hacker
+if has('nvim')
+  nmap <BS> <C-W>h
+endif
+
 if exists('$TMUX')  " Support resizing in tmux
   if !has('nvim')
     set ttymouse=xterm2
