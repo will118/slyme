@@ -40,3 +40,5 @@ eval $(thefuck --alias)
 source /usr/local/share/chruby/chruby.sh
 
 chruby ruby-2.3
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
