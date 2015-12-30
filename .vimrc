@@ -5,7 +5,7 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 :map <C-s> :Ag<Space>
 
 set background=dark
-colorscheme PaperColor
+colorscheme base16-eighties
 
 filetype off
 call plug#begin()
@@ -76,7 +76,3 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 
 autocmd! BufWritePost * Neomake
-
-autocmd FileType javascript set tabstop=8|set shiftwidth=2|set expandtab
-hi SpellCap ctermfg=027 ctermbg=209 guifg=#dfff00 guibg=#ffaf00
-

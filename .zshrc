@@ -42,3 +42,5 @@ source /usr/local/share/chruby/chruby.sh
 chruby ruby-2.3
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export LS_COLORS='fi=00:di=00;34:ln=00;36:ex=00;91:';
