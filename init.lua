@@ -28,7 +28,7 @@ function resizewindow(widthfactor, fromright)
   local isiterm = win:application():title() == "iTerm2"
   -- set width, if iterm2 then requires adding 2px to this.
   local basewidth = DESIRED_COLUMN_WIDTH * widthfactor
-  f.w = isiterm and basewidth + 2 or basewidth * widthfactor
+  f.w = isiterm and basewidth + 2 or basewidth
   -- set height.
   f.h = isiterm and 860 or DESIRED_MAX_HEIGHT
   -- set the y position.
