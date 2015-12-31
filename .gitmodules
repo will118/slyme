@@ -1,0 +1,6 @@
+[submodule "pure"]
+	path = pure
+	url = git@github.com:sindresorhus/pure.git
+[submodule "osx-cpu-temp"]
+	path = osx-cpu-temp
+	url = git@github.com:lavoiesl/osx-cpu-temp.git
