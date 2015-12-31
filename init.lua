@@ -2,6 +2,8 @@ local application = require "mjolnir.application"
 local hotkey = require "mjolnir.hotkey"
 local window = require "mjolnir.window"
 local fnutils = require "mjolnir.fnutils"
+local audiodevice = require "mjolnir._asm.sys.audiodevice"
+local ipc = require "mjolnir._asm.ipc"
 
 COLUMN_COUNT = 4
 DESIRED_X_ORIGIN = 6
@@ -9,6 +11,23 @@ DESIRED_Y_ORIGIN = 33
 DESIRED_MAX_HEIGHT = 848
 DESIRED_MAX_WIDTH = 1424
 DESIRED_COLUMN_WIDTH = DESIRED_MAX_WIDTH / COLUMN_COUNT
+
+function activewindowtitle()
+  local win = window.focusedwindow()
+  local windowtitle = win:title()
+  local apptitle = win:application():title()
+  return '\27[92m' .. apptitle .. '\27[95m ፨ \27[93m' .. windowtitle
+end
+
+function speakerstate()
+  local device = audiodevice.defaultoutputdevice()
+  local volume = math.floor(device:volume())
+  if device:muted() then
+    return '\27[90m' .. volume .. "%"
+  else
+    return '\27[94m' .. volume .. "%"
+  end
+end
 
 function centerandshrink()
   local win = window.focusedwindow()
