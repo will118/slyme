@@ -10,7 +10,6 @@ colorscheme base16-eighties
 filetype off
 call plug#begin()
 Plug 'benekastah/neomake'
-Plug 'Shougo/deoplete.nvim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'

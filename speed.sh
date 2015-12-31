@@ -20,11 +20,25 @@ UPDATED_UP=${SPLITPARTS[9]}
 DOWN_DIFF=$((($UPDATED_DOWN - $ORIG_DOWN) / 2))
 UP_DIFF=$((($UPDATED_UP - $ORIG_UP) / 2))
 
-# format diff speeds
-DOWN_SPEED=$($NUMFORMAT --to=si --suffix=B --round=towards-zero $DOWN_DIFF)
-UP_SPEED=$($NUMFORMAT --to=si --suffix=B --round=towards-zero $UP_DIFF)
+HUMANIZED_RESULT=0
+function humanize() {
+  if [ $1 == 0 ]
+  then
+    HUMANIZED_RESULT="0.0KB"
+  elif [ $1 -lt 1000 ]
+  then
+    BYTES_AS_KB=$(echo "$1/1000" | bc -l)
+    HUMANIZED_RESULT=$(printf "%.1fKB" $BYTES_AS_KB)
+  else
+    HUMANIZED_RESULT=$($NUMFORMAT --to=si --suffix=B --round=towards-zero $1)
+  fi
+}
 
-# TODO: if bytes then force it to be KB, e.g. 0.xKB/s
+# format diff speeds
+humanize $DOWN_DIFF
+DOWN_SPEED=$HUMANIZED_RESULT
+humanize $UP_DIFF
+UP_SPEED=$HUMANIZED_RESULT
 
 # print result
 printf "\e[92m%7s %7s" "$DOWN_SPEED/s" "$UP_SPEED/s"
