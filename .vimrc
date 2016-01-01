@@ -69,7 +69,7 @@ vnoremap p "_dP
 
 let g:NERDSpaceDelims=1
 let g:NERDTreeMinimalUI=1
-let g:NERDTreeWinSize=25
+let g:NERDTreeWinSize=20
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
