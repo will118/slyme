@@ -14,6 +14,8 @@
   - nerdtool (battery widget)
 - osx-cpu-temp
   - nerdtool (cpu temp widget)
+- iterm2 beta
+  - borderless window option
 - zsh
 - tmux
 - neovim
