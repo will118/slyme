@@ -4,3 +4,6 @@
 [submodule "osx-cpu-temp"]
 	path = osx-cpu-temp
 	url = git@github.com:lavoiesl/osx-cpu-temp.git
+[submodule "base16-vim"]
+	path = base16-vim
+	url = git@github.com:will118/base16-vim.git
