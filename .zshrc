@@ -23,6 +23,14 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
+# zsh history (load before highlighting)
+source "$HOME/.dots/zsh-history-substring-search/zsh-history-substring-search.zsh"
+zmodload zsh/terminfo
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 # styling
 export LS_COLORS='fi=00:di=00;34:ln=00;36:ex=00;91:';
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

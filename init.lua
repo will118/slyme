@@ -12,11 +12,51 @@ DESIRED_MAX_HEIGHT = 848
 DESIRED_MAX_WIDTH = 1424
 DESIRED_COLUMN_WIDTH = DESIRED_MAX_WIDTH / COLUMN_COUNT
 
+-- text: input string
+-- colors: array of escape code numbers
+-- endindex: where the text will be trimmed (the most faded part)
+function textansigradient(text, colors, endindex)
+  -- trim string to total visible length
+  local trimmed = string.sub(text, 1, endindex)
+  local length = string.len(trimmed)
+
+  steps = {}
+  total = 0
+
+  for i = #colors, 1, -1 do
+    steps[i] = i * i
+    total = total + steps[i]
+  end
+
+  for i = #colors, 1, -1 do
+    result = (steps[i] / total) * length
+    calc = result > 10 and math.ceil(result) or math.floor(result)
+    steps[i] = calc > 0 and calc or 1
+  end
+
+  charindex = 1
+  local outputstring = ""
+
+  for i = #colors, 1, -1 do
+    local colorindex = (#colors + 1) - i
+    local color = colors[colorindex]
+    local charcount = steps[i]
+    local slice = string.sub(text, charindex, charindex + charcount)
+    charindex = charindex + charcount + 1
+    outputstring = outputstring .. string.format("\27[%dm%s", color, slice)
+  end
+
+  return outputstring
+end
+
 function activewindowtitle()
   local win = window.focusedwindow()
-  local windowtitle = win:title()
+  local colors = {32, 33, 34, 35, 36, 37, 90, 91, 92, 93, 94, 95, 96, 97}
+  local title = win:title()
+  local length = string.len(title)
+  local windowtitle = length > 20 and textansigradient(title, colors, 68) or string.format("\27[%dm%s", colors[1], title)
   local apptitle = win:application():title()
-  return '\27[92m' .. apptitle .. '\27[95m ፨ \27[93m' .. windowtitle
+  return '\27[30m' .. apptitle .. '\27[31m ፨ ' .. windowtitle
 end
 
 function speakerstate()

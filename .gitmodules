@@ -7,3 +7,6 @@
 [submodule "base16-vim"]
 	path = base16-vim
 	url = git@github.com:will118/base16-vim.git
+[submodule "zsh-history-substring-search"]
+	path = zsh-history-substring-search
+	url = git@github.com:zsh-users/zsh-history-substring-search.git
