@@ -17,7 +17,7 @@ DESIRED_COLUMN_WIDTH = DESIRED_MAX_WIDTH / COLUMN_COUNT
 -- endindex: where the text will be trimmed (the most faded part)
 function constanttextansigradient(text, colors, endindex)
   local trimmed = string.sub(text, 1, endindex)
-  charindex = 1
+  local charindex = 1
   local outputstring = ""
 
   for i = #colors, 1, -1 do
@@ -35,9 +35,13 @@ end
 function activewindowtitle()
   local win = window.focusedwindow()
   local colors = {32, 33, 34, 35, 36, 37, 90, 91, 92, 93, 94, 95, 96, 97}
-  local windowtitle = constanttextansigradient(win:title(), colors, 68)
-  local apptitle = win:application():title()
-  return '\27[30m' .. apptitle .. '\27[31m ፨ ' .. windowtitle
+  if win then
+    local windowtitle = constanttextansigradient(win:title(), colors, 68)
+    local apptitle = win:application():title()
+    return '\27[30m' .. apptitle .. '\27[31m ፨ ' .. windowtitle
+  else
+    return ''
+  end
 end
 
 function speakerstate()
