@@ -20,9 +20,8 @@ function constanttextansigradient(text, colors, endindex)
   local charindex = 1
   local outputstring = ""
 
-  for i = #colors, 1, -1 do
-    local colorindex = (#colors + 1) - i
-    local color = colors[colorindex]
+  for i = 1, #colors do
+    local color = colors[i]
     local charcount = 5
     local slice = string.sub(trimmed, charindex, charindex + charcount)
     charindex = charindex + charcount + 1
@@ -49,7 +48,7 @@ function speakerstate()
   if ok then
     return value
   else
-    return '\27[90m' .. 'HDMI'
+    return '\27[90m' .. 'HDMI\27[0m'
   end
 end
 
