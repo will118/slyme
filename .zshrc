@@ -14,7 +14,7 @@ setopt sharehistory
 setopt extendedhistory
 
 # auto cd
-setopt auto_cd
+#setopt auto_cd
 
 # general
 export EDITOR=vim
