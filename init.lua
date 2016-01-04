@@ -38,7 +38,7 @@ function activewindowtitle()
   if win then
     local windowtitle = constanttextansigradient(win:title(), colors, 80)
     local apptitle = win:application():title()
-    return '\27[30m' .. apptitle .. '\27[31m ፨ ' .. windowtitle
+    return '\27[30m' .. apptitle .. '\27[31m ፨ ' .. windowtitle .. '\27[0m'
   else
     return ''
   end
@@ -56,12 +56,13 @@ end
 function speakerinfo()
   local device = audiodevice.defaultoutputdevice()
   local volume = math.floor(device:volume())
+  local volumestring = volume .. "%" .. '\27[0m'
   if device:muted() then
-    return '\27[90m' .. volume .. "%"
+    return '\27[90m' .. volumestring
   elseif device:name() == 'Built-in Output' then
-    return '\27[94m' .. volume .. "%"
+    return '\27[94m' .. volumestring
   else
-    return '\27[96m' .. volume .. "%"
+    return '\27[96m' .. volumestring
   end
 end
 
