@@ -36,7 +36,7 @@ function activewindowtitle()
   local win = window.focusedwindow()
   local colors = {32, 33, 34, 35, 36, 37, 90, 91, 92, 93, 94, 95, 96, 97}
   if win then
-    local windowtitle = constanttextansigradient(win:title(), colors, 80)
+    local windowtitle = constanttextansigradient(win:title(), colors, 70)
     local apptitle = win:application():title()
     return '\27[30m' .. apptitle .. '\27[31m ፨ ' .. windowtitle .. '\27[0m'
   else
