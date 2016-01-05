@@ -4,19 +4,13 @@ local window = require "mjolnir.window"
 local fnutils = require "mjolnir.fnutils"
 local audiodevice = require "mjolnir._asm.sys.audiodevice"
 local ipc = require "mjolnir._asm.ipc"
-
-COLUMN_COUNT = 4
-DESIRED_X_ORIGIN = 6
-DESIRED_Y_ORIGIN = 33
-DESIRED_MAX_HEIGHT = 848
-DESIRED_MAX_WIDTH = 1424
-DESIRED_COLUMN_WIDTH = DESIRED_MAX_WIDTH / COLUMN_COUNT
+local utf8 = require 'lua-utf8'
 
 -- text: input string
 -- colors: array of escape code numbers
 -- endindex: where the text will be trimmed (the most faded part)
 function constanttextansigradient(text, colors, endindex)
-  local cleaned = string.gsub(text, "|", ":")
+  local cleaned = utf8.escape(text)
   local trimmed = string.sub(cleaned, 1, endindex)
   local charindex = 1
   local charcount = 5
@@ -66,6 +60,13 @@ function speakerinfo()
   end
 end
 
+COLUMN_COUNT = 4
+DESIRED_X_ORIGIN = 6
+DESIRED_Y_ORIGIN = 33
+DESIRED_MAX_HEIGHT = 848
+DESIRED_MAX_WIDTH = 1424
+DESIRED_COLUMN_WIDTH = DESIRED_MAX_WIDTH / COLUMN_COUNT
+
 function centerandshrink()
   local win = window.focusedwindow()
   local f = win:frame()
@@ -75,6 +76,22 @@ function centerandshrink()
   f.x = 280
   f.y = 150
   win:setframe(f)
+end
+
+function resizetoalmostfull()
+  local win = window.focusedwindow()
+  local screenframe = win:screen():fullframe()
+  local isiterm = win:application():title() == "iTerm2"
+  local desiredwidth = math.floor((screenframe.w / 100) * 99)
+  desiredwidth = isiterm and desiredwidth + 8 or desiredwidth + 2
+  local heightmultiplier = isiterm and 97 or 96
+  local desiredheight = math.floor((screenframe.h / 100) * heightmultiplier)
+  local windowframe = win:frame()
+  windowframe.w = desiredwidth
+  windowframe.h = desiredheight
+  windowframe.x = DESIRED_X_ORIGIN
+  windowframe.y = DESIRED_Y_ORIGIN
+  win:setframe(windowframe)
 end
 
 -- fromright: i.e. not from the left.
@@ -101,7 +118,8 @@ local shortcuts = {
   ["8"] = function() resizewindow(3, true) end,
   ["9"] = function() resizewindow(2, true) end,
   ["0"] = function() resizewindow(1, true) end,
-  R = function() resizewindow(4, false) end,
+  R = function() resizetoalmostfull() end,
+  Z = mjolnir.reload,
   C = centerandshrink,
 }
 
