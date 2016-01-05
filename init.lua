@@ -16,13 +16,14 @@ DESIRED_COLUMN_WIDTH = DESIRED_MAX_WIDTH / COLUMN_COUNT
 -- colors: array of escape code numbers
 -- endindex: where the text will be trimmed (the most faded part)
 function constanttextansigradient(text, colors, endindex)
-  local trimmed = string.sub(text, 1, endindex)
+  local cleaned = string.gsub(text, "|", ":")
+  local trimmed = string.sub(cleaned, 1, endindex)
   local charindex = 1
+  local charcount = 5
   local outputstring = ""
 
   for i = 1, #colors do
     local color = colors[i]
-    local charcount = 5
     local slice = string.sub(trimmed, charindex, charindex + charcount)
     charindex = charindex + charcount + 1
     outputstring = outputstring .. string.format("\27[%dm%s", color, slice)
