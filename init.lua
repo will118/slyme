@@ -10,21 +10,20 @@ local utf8 = require 'lua-utf8'
 -- colors: array of escape code numbers
 -- endindex: where the text will be trimmed (the most faded part)
 function constanttextansigradient(text, colors, endindex)
-  local trimmed = string.sub(text, 1, endindex)
+  local utext = utf8.escape(text)
+  local trimmed = utf8.sub(utext, 1, endindex)
   local charcount = 5
   local charindex = 1
   local outputstring = ""
 
   for i = 1, #colors do
     local color = colors[i]
-    local slice = string.sub(trimmed, charindex, charindex + charcount)
+    local slice = utf8.sub(trimmed, charindex, charindex + charcount)
     charindex = charindex + charcount + 1
     outputstring = outputstring .. string.format("\27[%dm%s", color, slice)
   end
 
-  -- does fix crashes (so far) but mangles the github · and i'm guessing other stuff.
-  -- the replace is to to remove that character that gets added in the escaping.
-  return utf8.gsub(utf8.escape(outputstring), "Â", "")
+  return outputstring
 end
 
 function activewindowtitle()
