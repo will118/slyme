@@ -10,10 +10,9 @@ local utf8 = require 'lua-utf8'
 -- colors: array of escape code numbers
 -- endindex: where the text will be trimmed (the most faded part)
 function constanttextansigradient(text, colors, endindex)
-  local cleaned = utf8.escape(text)
-  local trimmed = string.sub(cleaned, 1, endindex)
-  local charindex = 1
+  local trimmed = string.sub(text, 1, endindex)
   local charcount = 5
+  local charindex = 1
   local outputstring = ""
 
   for i = 1, #colors do
@@ -23,7 +22,9 @@ function constanttextansigradient(text, colors, endindex)
     outputstring = outputstring .. string.format("\27[%dm%s", color, slice)
   end
 
-  return outputstring
+  -- does fix crashes (so far) but mangles the github · and i'm guessing other stuff.
+  -- the replace is to to remove that character that gets added in the escaping.
+  return utf8.gsub(utf8.escape(outputstring), "Â", "")
 end
 
 function activewindowtitle()
@@ -60,65 +61,49 @@ function speakerinfo()
   end
 end
 
-COLUMN_COUNT = 4
-DESIRED_X_ORIGIN = 6
-DESIRED_Y_ORIGIN = 33
-DESIRED_MAX_HEIGHT = 848
-DESIRED_MAX_WIDTH = 1424
-DESIRED_COLUMN_WIDTH = DESIRED_MAX_WIDTH / COLUMN_COUNT
-
 function centerandshrink()
   local win = window.focusedwindow()
-  local f = win:frame()
-  f.w = DESIRED_MAX_WIDTH / 1.5
-  f.h = DESIRED_MAX_HEIGHT / 1.5
-  -- TODO: Make this the actual middle.
-  f.x = 280
-  f.y = 150
-  win:setframe(f)
+  if win then
+    local screenframe = win:screen():fullframe()
+    local winframe = win:frame()
+    local shrinkfactor = 1.3
+    winframe.w = screenframe.w / shrinkfactor
+    winframe.h = screenframe.h / shrinkfactor
+    winframe.x = (screenframe.w - winframe.w) / 2
+    winframe.y = (screenframe.h - winframe.h) / 2
+    win:setframe(winframe)
+  end
 end
+
+DESIRED_X_ORIGIN = 6
+DESIRED_Y_ORIGIN = 33
 
 function resizetoalmostfull()
   local win = window.focusedwindow()
-  local screenframe = win:screen():fullframe()
-  local isiterm = win:application():title() == "iTerm2"
-  local desiredwidth = math.floor((screenframe.w / 100) * 99)
-  desiredwidth = isiterm and desiredwidth + 8 or desiredwidth + 2
-  local heightmultiplier = isiterm and 97 or 96
-  local desiredheight = math.floor((screenframe.h / 100) * heightmultiplier)
-  local windowframe = win:frame()
-  windowframe.w = desiredwidth
-  windowframe.h = desiredheight
-  windowframe.x = DESIRED_X_ORIGIN
-  windowframe.y = DESIRED_Y_ORIGIN
-  win:setframe(windowframe)
-end
+  if win then
+    local screenframe = win:screen():fullframe()
 
--- fromright: i.e. not from the left.
-function resizewindow(widthfactor, fromright)
-  local win = window.focusedwindow()
-  local f = win:frame()
-  local isiterm = win:application():title() == "iTerm2"
-  -- set width, if iterm2 then requires adding 2px to this.
-  local basewidth = DESIRED_COLUMN_WIDTH * widthfactor
-  f.w = isiterm and basewidth + 2 or basewidth
-  -- set height.
-  f.h = isiterm and 860 or DESIRED_MAX_HEIGHT
-  -- set the y position.
-  f.y = DESIRED_Y_ORIGIN
-  -- set the x position.
-  f.x = fromright and (DESIRED_MAX_WIDTH - f.w + 6) or DESIRED_X_ORIGIN
-  win:setframe(f)
+    -- some hacks
+    local isiterm = win:application():title() == "iTerm2"
+    local isthemacbookscreen = (screenframe.w == 1440)
+
+    local desiredwidth = math.floor((screenframe.w / 100) * 99)
+    desiredwidth = isiterm and desiredwidth + 8 or (isthemacbookscreen and desiredwidth + 1 or desiredwidth + 2)
+    local heightmultiplier = isiterm and 97 or (isthemacbookscreen and 94.5 or 96)
+    local desiredheight = math.floor((screenframe.h / 100) * heightmultiplier)
+    local windowframe = win:frame()
+
+    -- set values
+    windowframe.w = desiredwidth
+    windowframe.h = desiredheight
+    windowframe.x = DESIRED_X_ORIGIN
+    windowframe.y = DESIRED_Y_ORIGIN
+    win:setframe(windowframe)
+  end
 end
 
 local shortcuts = {
-  ["1"] = function() resizewindow(1, false) end,
-  ["2"] = function() resizewindow(2, false) end,
-  ["3"] = function() resizewindow(3, false) end,
-  ["8"] = function() resizewindow(3, true) end,
-  ["9"] = function() resizewindow(2, true) end,
-  ["0"] = function() resizewindow(1, true) end,
-  R = function() resizetoalmostfull() end,
+  R = resizetoalmostfull,
   Z = mjolnir.reload,
   C = centerandshrink,
 }
