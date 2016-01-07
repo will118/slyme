@@ -15,6 +15,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rking/ag.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'heavenshell/vim-jsdoc'
 call plug#end()
 filetype plugin indent on
 syntax on
@@ -67,11 +68,13 @@ endif
 " Don't copy the contents of an overwritten selection.
 vnoremap p "_dP
 
+" NERDTree
 let g:NERDSpaceDelims=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinSize=20
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
+" JSDoc
+let g:jsdoc_enable_es6=1
 
+" Neomake
 autocmd! BufWritePost * Neomake

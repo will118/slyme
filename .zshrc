@@ -40,6 +40,7 @@ alias ls='ls -F --color=auto'
 alias reddy="redis-server /usr/local/etc/redis.conf"
 alias cat="ccat --bg=dark"
 alias vim="nvim"
+alias watchtest="clear && fswatch -o test build | xargs -n1 -I{} npm test"
 alias mong="mongod --config /usr/local/etc/mongod.conf"
 alias glog="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
