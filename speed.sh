@@ -40,5 +40,13 @@ DOWN_SPEED=$HUMANIZED_RESULT
 humanize $UP_DIFF
 UP_SPEED=$HUMANIZED_RESULT
 
+STATE=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ state/ {print $0}')
+
 # print result
-printf "\e[92m%7s %7s" "$DOWN_SPEED/s" "$UP_SPEED/s"
+if [[ $STATE == *"init"* ]]
+then
+  printf "\e[93m%7s %7s" "$DOWN_SPEED/s" "$UP_SPEED/s"
+else
+  printf "\e[94m%7s %7s" "$DOWN_SPEED/s" "$UP_SPEED/s"
+fi
+
