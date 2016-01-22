@@ -30,7 +30,7 @@ Then select it.
 Run all these scripts (or copy and paste the commands, they're all symlinks).
 ```
 ./install_zsh_stuff.sh
-./install_vim.sh
+./install_vim_stuff.sh
 ./symlink_config_files.sh
 ```
 
