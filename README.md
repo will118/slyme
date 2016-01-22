@@ -9,6 +9,7 @@ Some basic stuff:
   - Homebrew.
   - `brew install tmux vim zsh` (you might have to add /usr/local/bin/zsh to /etc/shells)
   - `chsh -s $(which zsh)`
+  - `brew install coreutils` (for fancy ls colours mainly…)
 
 You will probably want to delete the ruby/node specific stuff from my zshrc.
 
