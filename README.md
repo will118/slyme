@@ -1,5 +1,9 @@
 ![Img](/screenshots/ss.png "Sample screenshot")
 
+It's a bunch of zsh, vim, and tmux config files.
+
+Also mjolnir and nerdtool stuff.
+
 Some basic stuff:
   - Homebrew
   - `brew install tmux vim zsh`
