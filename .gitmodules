@@ -13,3 +13,6 @@
 [submodule "geektool-3"]
 	path = geektool-3
 	url = git@github.com:will118/geektool-3.git
+[submodule "FiraCode"]
+	path = FiraCode
+	url = git@github.com:tonsky/FiraCode.git
