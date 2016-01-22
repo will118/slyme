@@ -7,7 +7,7 @@ Also mjolnir and nerdtool stuff.
 Some basic stuff:
   - iTerm2 ("Test Release" for borderless window, I haven't noticed any bugs).
   - Homebrew.
-  - `brew install tmux vim zsh`
+  - `brew install tmux vim zsh` (you might have to add /usr/local/bin/zsh to /etc/shells)
   - `chsh -s $(which zsh)`
 
 You will probably want to delete the ruby/node specific stuff from my zshrc.
