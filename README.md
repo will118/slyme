@@ -26,6 +26,9 @@ In iTerm, import the `base16-eighties.dark.itermcolors` file:
 
 Then select it.
 
+Also the font I use `FiraCode` is included, I used the Retina variant but I don't even know if they're different.
+
+Set it in iTerm profile "Text" tab etc… Mine is 13pt.
 
 Run all these scripts (or copy and paste the commands, they're all symlinks).
 ```
