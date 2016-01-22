@@ -5,6 +5,8 @@ Some basic stuff:
   - `brew install tmux vim zsh`
   - `chsh -s $(which zsh)`
 
+You will probably want to delete the ruby/node specific stuff from my zshrc.
+
 You should probably clone as `.dots` in your home dir:
 
 Too many things rely on it.
@@ -27,6 +29,13 @@ Run all these scripts (or copy and paste the commands, they're all symlinks).
 ./install_vim.sh
 ./symlink_config_files.sh
 ```
+
+also
+
+```
+brew install zsh-syntax-highlighting
+```
+
 
 Install vim-plug "A minimalist Vim plugin manager."
 ```
@@ -68,4 +77,4 @@ NeekTool… Coming soon…
   - borderless window option
 - zsh
 - tmux
-- neovim
+- vim/neovim
