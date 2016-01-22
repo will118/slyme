@@ -1,5 +1,14 @@
 ![Img](/screenshots/ss.png "Sample screenshot")
 
+You should probably clone as `.dots` in your home dir.
+
+```
+git clone git@github.com:will118/slyme.git ~/.dots
+cd ~/.dots && git submodule init
+./zsh_config_setup.sh
+```
+
+
 ## Dependencies
 
 - nerdtool (top bar)
