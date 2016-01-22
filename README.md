@@ -5,7 +5,8 @@ It's a bunch of zsh, vim, and tmux config files.
 Also mjolnir and nerdtool stuff.
 
 Some basic stuff:
-  - Homebrew
+  - iTerm2 ("Test Release" for borderless window, I haven't noticed any bugs).
+  - Homebrew.
   - `brew install tmux vim zsh`
   - `chsh -s $(which zsh)`
 
@@ -16,8 +17,7 @@ You should probably clone as `.dots` in your home dir:
 Too many things rely on it.
 
 ```
-git clone git@github.com:will118/slyme.git ~/.dots
-cd ~/.dots && git submodule init
+git clone --recursive git@github.com:will118/slyme.git ~/.dots
 ```
 
 In iTerm, import the `base16-eighties.dark.itermcolors` file:
