@@ -1,4 +1,8 @@
-![Img](/screenshots/ss.png "Sample screenshot")
+### Basic (zsh, tmux, vim)
+![Img](/screenshots/basic.png "Basic screenshot")
+
+### Full (zsh, tmux, vim, nerdtool, mjolnir)
+![Img](/screenshots/full.png "Full screenshot")
 
 It's a bunch of zsh, vim, and tmux config files.
 
