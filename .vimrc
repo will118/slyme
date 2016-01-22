@@ -15,7 +15,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rking/ag.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'heavenshell/vim-jsdoc'
 call plug#end()
 filetype plugin indent on
 syntax on
