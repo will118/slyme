@@ -15,8 +15,11 @@ cd ~/.dots && git submodule init
 ```
 
 In iTerm, import the `base16-eighties.dark.itermcolors` file:
+
 `iTerm2 > Preferences > Profiles > Color > Color Presets...`
+
 Then select it.
+
 
 Run all these scripts (or copy and paste the commands, they're all symlinks).
 ```
@@ -44,6 +47,8 @@ My nerdtool fork has some hack to make nerdtool switch (~90%) of the time, when
 you plug in an external monitor.
 
 I'm working on a basic swift app to solve all the monitor issues I've had with nerdtool.
+
+NeekTool… Coming soon…
 
 ## Dependencies
 
