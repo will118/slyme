@@ -9,6 +9,7 @@ colorscheme base16-eighties
 
 filetype off
 call plug#begin()
+Plug 'sheerun/vim-polyglot'
 Plug 'benekastah/neomake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -17,6 +18,7 @@ Plug 'rking/ag.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
 filetype plugin indent on
+
 syntax on
 
 set noshowmode
@@ -72,8 +74,7 @@ let g:NERDSpaceDelims=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinSize=20
 
-" JSDoc
-let g:jsdoc_enable_es6=1
-
 " Neomake
 autocmd! BufWritePost * Neomake
+:highlight NeomakeErrorMsg ctermfg=227 ctermbg=237
+let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}
