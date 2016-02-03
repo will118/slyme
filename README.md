@@ -60,6 +60,14 @@ Then in vim do `:PlugInstall`
 The other stuff is `mjolnir` which I installed as a .app.
 You need luarocks, and use it to install all the stuff in the `init.lua`.
 
+```
+luarocks install mjolnir.application
+luarocks install mjolnir.hotkey
+luarocks install mjolnir._asm.sys.audiodevice
+luarocks install mjolnir._asm.ipc
+luarocks install luautf8
+```
+
 Then nerdtool for the bar at the top (auto-hide menu bar in el capitan).
 
 All my nerdtool exports are for 1440, so you may have to relocate them.
