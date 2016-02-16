@@ -30,3 +30,6 @@ mkky () {
 watchy () {
   fswatch -0 $1 | xargs -0 -n 1 -I {} $2 {}
 }
+
+# fzf settings
+export FZF_DEFAULT_COMMAND='ag -g ""'

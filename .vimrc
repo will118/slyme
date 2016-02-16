@@ -1,26 +1,18 @@
-let mapleader = ','
-nnoremap <leader>d :NERDTreeToggle<CR>
+" vim:fdm=marker
 
+" Keybinds {{{
+let mapleader = ','
 :map <C-f> :FZF<CR>
 :map <C-s> :Ag<Space>
-
+" }}}
+" Theme {{{
 set background=dark
 colorscheme base16-eighties
-
+" }}}
+" General {{{
 filetype off
-call plug#begin()
-Plug 'sheerun/vim-polyglot'
-Plug 'benekastah/neomake'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'rking/ag.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-call plug#end()
 filetype plugin indent on
-
 syntax on
-
 set noshowmode
 set timeoutlen=420
 set autoindent
@@ -50,14 +42,31 @@ set wildmode=longest,list,full
 set mouse=a
 set textwidth=79
 set colorcolumn=+1
-
+" }}}
+" Plugins {{{
+call plug#begin()
+Plug 'sheerun/vim-polyglot'
+Plug 'benekastah/neomake'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'rking/ag.vim'
+" Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+call plug#end()
+" }}}
+" Nvim {{{
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
-" ima hacker
+" }}}
+" Hacks {{{
 if has('nvim')
   nmap <BS> <C-W>h
 endif
 
+" Don't copy the contents of an overwritten selection.
+vnoremap p "_dP
+" }}}
+" Tmux {{{
 if exists('$TMUX')  " Support resizing in tmux
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
@@ -65,16 +74,14 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
-
-" Don't copy the contents of an overwritten selection.
-vnoremap p "_dP
-
-" NERDTree
+" }}}
+" NERDTree {{{
 let g:NERDSpaceDelims=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinSize=20
-
-" Neomake
+nnoremap <leader>d :NERDTreeToggle<CR>
+" }}}
+" Neomake {{{
 autocmd! BufWritePost * Neomake
-:highlight NeomakeErrorMsg ctermfg=227 ctermbg=237
 let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}
+" }}}
