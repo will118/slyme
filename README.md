@@ -8,6 +8,8 @@ It's a bunch of zsh, vim, and tmux config files.
 
 Also mjolnir and nerdtool stuff.
 
+## Terminal config
+
 Some basic stuff:
   - iTerm2 ("Test Release" for borderless window, I haven't noticed any bugs).
   - Homebrew.
@@ -56,6 +58,17 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ```
 
 Then in vim do `:PlugInstall`
+
+### Troubleshooting
+
+Some users have issues with colours in vim and tmux+vim. The text width line
+was bright green in one case, and selecting brackets wasn't great.
+
+If you have this issue, try deleting `~/Library/Preferences/com.googlecode.iterm2.plist`.
+
+Also maybe try using Fira Code.
+
+## Menu bar replacement
 
 The other stuff is `mjolnir` which I installed as a .app.
 You need luarocks, and use it to install all the stuff in the `init.lua`.
