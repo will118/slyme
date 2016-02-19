@@ -59,6 +59,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 Then in vim do `:PlugInstall`
 
+### iTerm snapping
+
+
+![Img](/screenshots/disable_snapping.png "Disable snapping")
+
 ### Troubleshooting
 
 Some users have issues with colours in vim and tmux+vim. The text width line

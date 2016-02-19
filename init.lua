@@ -74,10 +74,10 @@ function centerandshrink()
   end
 end
 
-DESIRED_X_ORIGIN = 6
-DESIRED_Y_ORIGIN = 33
+DESIRED_X_ORIGIN = 0
+DESIRED_Y_ORIGIN = 22
 
-function resizetoalmostfull()
+function resizetofull()
   local win = window.focusedwindow()
   if win then
     local screenframe = win:screen():fullframe()
@@ -86,10 +86,8 @@ function resizetoalmostfull()
     local isiterm = win:application():title() == "iTerm2"
     local isthemacbookscreen = (screenframe.w == 1440)
 
-    local desiredwidth = math.floor((screenframe.w / 100) * 99)
-    desiredwidth = isiterm and desiredwidth + 8 or (isthemacbookscreen and desiredwidth + 1 or desiredwidth + 2)
-    local heightmultiplier = isiterm and 97 or (isthemacbookscreen and 94.5 or 96)
-    local desiredheight = math.floor((screenframe.h / 100) * heightmultiplier)
+    local desiredwidth = screenframe.w
+    local desiredheight = screenframe.h
     local windowframe = win:frame()
 
     -- set values
@@ -102,7 +100,7 @@ function resizetoalmostfull()
 end
 
 local shortcuts = {
-  R = resizetoalmostfull,
+  R = resizetofull,
   Z = mjolnir.reload,
   C = centerandshrink,
 }
