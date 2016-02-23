@@ -82,17 +82,13 @@ function resizetofull()
   if win then
     local screenframe = win:screen():fullframe()
 
-    -- some hacks
-    local isiterm = win:application():title() == "iTerm2"
-    local isthemacbookscreen = (screenframe.w == 1440)
-
     local desiredwidth = screenframe.w
     local desiredheight = screenframe.h
     local windowframe = win:frame()
 
     -- set values
     windowframe.w = desiredwidth
-    windowframe.h = desiredheight
+    windowframe.h = desiredheight - DESIRED_Y_ORIGIN
     windowframe.x = DESIRED_X_ORIGIN
     windowframe.y = DESIRED_Y_ORIGIN
     win:setframe(windowframe)
