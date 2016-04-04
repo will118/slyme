@@ -5,6 +5,13 @@ alias vim="nvim"
 alias watchtest="clear && fswatch -o test build | xargs -n1 -I{} npm test"
 alias mong="mongod --config /usr/local/etc/mongod.conf"
 alias rimraf="rm -rf"
+alias ag="ag --color-path \"1;34\" --color-line-number \"3;34\""
+alias pizza="node ~/pizza/web_client/getStatus.js"
+alias maan="man"
+alias maaan="man"
+alias maaaan="man"
+alias maaaaan="man"
+alias maaaaaan="man"
 
 # 3rd party functions
 eval $(thefuck --alias)
