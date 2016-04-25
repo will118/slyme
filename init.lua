@@ -95,10 +95,15 @@ function resizetofull()
   end
 end
 
+function killcitations()
+  os.execute ("killall Citations")
+end
+
 local shortcuts = {
   R = resizetofull,
   Z = mjolnir.reload,
   C = centerandshrink,
+  f9 = killcitations
 }
 
 for key, func in pairs(shortcuts) do

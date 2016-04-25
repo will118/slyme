@@ -1,13 +1,26 @@
 " vim:fdm=marker
 
+" Plugins {{{
+call plug#begin()
+Plug 'sheerun/vim-polyglot'
+Plug 'benekastah/neomake'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'rking/ag.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/goyo.vim'
+call plug#end()
+" }}}
 " Keybinds {{{
 let mapleader = ','
 :map <C-f> :FZF<CR>
+:map <C-g> :Goyo<CR>
 :map <C-s> :Ag<Space>
 " }}}
 " Theme {{{
 set background=dark
-colorscheme base16-eighties
+colorscheme base16-ashes
 " }}}
 " General {{{
 filetype off
@@ -42,17 +55,6 @@ set wildmode=longest,list,full
 set mouse=a
 set textwidth=79
 set colorcolumn=+1
-" }}}
-" Plugins {{{
-call plug#begin()
-Plug 'sheerun/vim-polyglot'
-Plug 'benekastah/neomake'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'rking/ag.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-call plug#end()
 " }}}
 " Nvim {{{
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
