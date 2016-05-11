@@ -77,12 +77,12 @@ end
 DESIRED_X_ORIGIN = 0
 DESIRED_Y_ORIGIN = 22
 
-function resizetofull()
+function resizeto(fullwidth, rightside)
   local win = window.focusedwindow()
   if win then
     local screenframe = win:screen():fullframe()
 
-    local desiredwidth = screenframe.w
+    local desiredwidth = (fullwidth and screenframe.w) or (screenframe.w / 2)
     local desiredheight = screenframe.h
     local windowframe = win:frame()
 
@@ -90,6 +90,11 @@ function resizetofull()
     windowframe.w = desiredwidth
     windowframe.h = desiredheight - DESIRED_Y_ORIGIN
     windowframe.x = DESIRED_X_ORIGIN
+
+    if rightside then
+      windowframe.x = desiredwidth
+    end
+
     windowframe.y = DESIRED_Y_ORIGIN
     win:setframe(windowframe)
   end
@@ -100,7 +105,9 @@ function killcitations()
 end
 
 local shortcuts = {
-  R = resizetofull,
+  R = function() return resizeto(true) end,
+  W = function() return resizeto(false, false) end,
+  E = function() return resizeto(false, true) end,
   Z = mjolnir.reload,
   C = centerandshrink,
   f9 = killcitations
