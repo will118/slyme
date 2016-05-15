@@ -16,3 +16,6 @@
 [submodule "FiraCode"]
 	path = FiraCode
 	url = git@github.com:tonsky/FiraCode.git
+[submodule "iTerm2"]
+	path = iTerm2
+	url = git@github.com:gnachman/iTerm2.git

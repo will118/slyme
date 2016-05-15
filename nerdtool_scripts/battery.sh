@@ -4,7 +4,7 @@ PERCENTAGE=$(pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d 
 
 if [ "$AC_POWER" == "AC Power" ]
 then
-  printf "\e[92m%s" "$PERCENTAGE"
+  printf "#[fg=colour109]%s#[default]" "$PERCENTAGE"
 else
-  printf "\e[31m%s" "$PERCENTAGE"
+  printf "#[fg=colour100]%s#[default]" "$PERCENTAGE"
 fi

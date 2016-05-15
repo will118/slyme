@@ -45,8 +45,8 @@ STATE=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/
 # print result
 if [[ $STATE == *"init"* ]]
 then
-  printf "\e[93m%7s %7s" "$DOWN_SPEED/s" "$UP_SPEED/s"
+  printf "#[fg=colour243]%7s %7s#[default]" "$DOWN_SPEED/s" "$UP_SPEED/s"
 else
-  printf "\e[94m%7s %7s" "$DOWN_SPEED/s" "$UP_SPEED/s"
+  printf "#[fg=colour249]%7s %7s#[default]" "$DOWN_SPEED/s" "$UP_SPEED/s"
 fi
 
