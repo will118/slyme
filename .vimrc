@@ -10,6 +10,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'rking/ag.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
+Plug 'justinmk/vim-sneak'
 call plug#end()
 " }}}
 " Keybinds {{{
@@ -76,13 +77,18 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 " }}}
-" NERDTree {{{
+" Plugin settings {{{
+" Sneak
+let g:sneak#use_ic_scs = 1
+let g:sneak#s_next = 1
+
+" NERDTree
 let g:NERDSpaceDelims=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinSize=20
 nnoremap <leader>d :NERDTreeToggle<CR>
-" }}}
-" Neomake {{{
+
+" Neomake
 autocmd! BufWritePost * Neomake
 let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}
 " }}}

@@ -1,3 +1,19 @@
+AC_POWER=$( pmset -g batt | egrep "AC Power" -o --colour=auto )
+
+PERCENTAGE=$(pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d ';')
+
+if [ "$AC_POWER" == "AC Power" ]
+then
+  BATTERY_PART=$(printf "#[fg=colour109]%s#[default]" "$PERCENTAGE")
+else
+  BATTERY_PART=$(printf "#[fg=colour100]%s#[default]" "$PERCENTAGE")
+fi
+
+CPU_PART=$(ps -A -o %cpu | awk '{s+=$1} END {printf("#[fg=colour105]%.1f#[default]",s/4);}')
+
+THE_TIME=$(date +"%H:%M")
+TIME_PART=$(printf "#[fgcolour=111]%s" "$THE_TIME")
+
 # coreutils aren't part of default PATH.
 NUMFORMAT=/usr/local/opt/coreutils/libexec/gnubin/numfmt
 
@@ -45,8 +61,11 @@ STATE=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/
 # print result
 if [[ $STATE == *"init"* ]]
 then
-  printf "#[fg=colour243]%7s %7s#[default]" "$DOWN_SPEED/s" "$UP_SPEED/s"
+  SPEED_PART=$(printf "#[fg=colour243]%7s %7s#[default]" "$DOWN_SPEED/s" "$UP_SPEED/s")
 else
-  printf "#[fg=colour249]%7s %7s#[default]" "$DOWN_SPEED/s" "$UP_SPEED/s"
+  SPEED_PART=$(printf "#[fg=colour249]%7s %7s#[default]" "$DOWN_SPEED/s" "$UP_SPEED/s")
 fi
 
+VOLUME_PART=$(/usr/local/bin/mjolnir -c 'speakerstate()')
+
+printf "%s   %s   %s   %s   %s" "$SPEED_PART" "$VOLUME_PART" "$CPU_PART" "$BATTERY_PART" "$TIME_PART"
