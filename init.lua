@@ -75,7 +75,6 @@ function resizeto(fullwidth, rightside)
     local windowframe = win:frame()
 
     local isiterm = win:application():title() == "iTerm2"
-    print("is iterm", isiterm)
     local y_origin = (isiterm and 0) or DESIRED_Y_ORIGIN
 
     -- set values

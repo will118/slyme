@@ -1,10 +1,5 @@
-### Basic (zsh, tmux, vim)
-![Img](/screenshots/basic.png "Basic screenshot")
-
-### Full (zsh, tmux, vim, nerdtool, mjolnir)
+### It's a bunch of zsh, vim, and tmux config files.
 ![Img](/screenshots/full.png "Full screenshot")
-
-It's a bunch of zsh, vim, and tmux config files.
 
 Also mjolnir.
 
@@ -17,9 +12,7 @@ Some basic stuff:
   - `chsh -s $(which zsh)`
   - `brew install coreutils` (for fancy ls colours mainly…)
 
-You will probably want to delete the ruby/node specific stuff from my zshrc.
-
-You should probably clone as `.dots` in your home dir:
+You should clone as `.dots` in your home dir:
 
 Too many things rely on it.
 
@@ -27,7 +20,7 @@ Too many things rely on it.
 git clone --recursive git@github.com:will118/slyme.git ~/.dots
 ```
 
-In iTerm, import the `base16-eighties.dark.itermcolors` file:
+In iTerm, import the `base16-ashes.dark.itermcolors` file:
 
 `iTerm2 > Preferences > Profiles > Color > Color Presets...`
 

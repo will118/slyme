@@ -1,18 +1,12 @@
 [submodule "pure"]
 	path = pure
 	url = git@github.com:sindresorhus/pure.git
-[submodule "osx-cpu-temp"]
-	path = osx-cpu-temp
-	url = git@github.com:will118/osx-cpu-temp.git
 [submodule "base16-vim"]
 	path = base16-vim
 	url = git@github.com:will118/base16-vim.git
 [submodule "zsh-history-substring-search"]
 	path = zsh-history-substring-search
 	url = git@github.com:zsh-users/zsh-history-substring-search.git
-[submodule "geektool-3"]
-	path = geektool-3
-	url = git@github.com:will118/geektool-3.git
 [submodule "FiraCode"]
 	path = FiraCode
 	url = git@github.com:tonsky/FiraCode.git
