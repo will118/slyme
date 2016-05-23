@@ -26,37 +26,25 @@ function constanttextansigradient(text, colors, endindex)
   return outputstring
 end
 
-function activewindowtitle()
-  local win = window.focusedwindow()
-  local colors = {32, 33, 34, 35, 36, 37, 90, 91, 92, 93, 94, 95, 96, 97}
-  if win then
-    local windowtitle = constanttextansigradient(win:title(), colors, 70)
-    local apptitle = win:application():title()
-    return '\27[30m' .. apptitle .. '\27[31m ፨ ' .. windowtitle .. '\27[0m'
-  else
-    return ''
-  end
-end
-
 function speakerstate()
   local ok, value = pcall(speakerinfo)
   if ok then
-    return value
+    return value .. '#[default]'
   else
-    return '\27[90m' .. 'HDMI\27[0m'
+    return '#[fg=colour69]' .. 'HDMI' .. '#[default]'
   end
 end
 
 function speakerinfo()
   local device = audiodevice.defaultoutputdevice()
   local volume = math.floor(device:volume())
-  local volumestring = volume .. "%" .. '\27[0m'
+  local volumestring = volume .. "%"
   if device:muted() then
-    return '\27[90m' .. volumestring
+    return '#[fg=colour59]' .. volumestring
   elseif device:name() == 'Built-in Output' then
-    return '\27[94m' .. volumestring
+    return '#[fg=colour107]' .. volumestring
   else
-    return '\27[96m' .. volumestring
+    return '#[fg=colour69]' .. volumestring
   end
 end
 
@@ -75,7 +63,7 @@ function centerandshrink()
 end
 
 DESIRED_X_ORIGIN = 0
-DESIRED_Y_ORIGIN = 22
+DESIRED_Y_ORIGIN = 18
 
 function resizeto(fullwidth, rightside)
   local win = window.focusedwindow()
@@ -86,16 +74,19 @@ function resizeto(fullwidth, rightside)
     local desiredheight = screenframe.h
     local windowframe = win:frame()
 
+    local isiterm = win:application():title() == "iTerm2"
+    local y_origin = (isiterm and 0) or DESIRED_Y_ORIGIN
+
     -- set values
     windowframe.w = desiredwidth
-    windowframe.h = desiredheight - DESIRED_Y_ORIGIN
+    windowframe.h = desiredheight - y_origin
     windowframe.x = DESIRED_X_ORIGIN
 
     if rightside then
       windowframe.x = desiredwidth
     end
 
-    windowframe.y = DESIRED_Y_ORIGIN
+    windowframe.y = y_origin
     win:setframe(windowframe)
   end
 end

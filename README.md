@@ -1,12 +1,7 @@
-### Basic (zsh, tmux, vim)
-![Img](/screenshots/basic.png "Basic screenshot")
-
-### Full (zsh, tmux, vim, nerdtool, mjolnir)
+### It's a bunch of zsh, vim, and tmux config files.
 ![Img](/screenshots/full.png "Full screenshot")
 
-It's a bunch of zsh, vim, and tmux config files.
-
-Also mjolnir and nerdtool stuff.
+Also mjolnir.
 
 ## Terminal config
 
@@ -17,9 +12,7 @@ Some basic stuff:
   - `chsh -s $(which zsh)`
   - `brew install coreutils` (for fancy ls colours mainly…)
 
-You will probably want to delete the ruby/node specific stuff from my zshrc.
-
-You should probably clone as `.dots` in your home dir:
+You should clone as `.dots` in your home dir:
 
 Too many things rely on it.
 
@@ -27,7 +20,7 @@ Too many things rely on it.
 git clone --recursive git@github.com:will118/slyme.git ~/.dots
 ```
 
-In iTerm, import the `base16-eighties.dark.itermcolors` file:
+In iTerm, import the `base16-ashes.dark.itermcolors` file:
 
 `iTerm2 > Preferences > Profiles > Color > Color Presets...`
 
@@ -35,7 +28,7 @@ Then select it.
 
 Also the font I use `FiraCode` is included, I used the Retina variant but I don't even know if they're different.
 
-Set it in iTerm profile "Text" tab etc… Mine is 13pt.
+Set it in iTerm profile "Text" tab etc… Mine is 12pt.
 
 Run all these scripts (or copy and paste the commands, they're all symlinks).
 ```
@@ -86,31 +79,17 @@ luarocks install mjolnir._asm.ipc
 luarocks install luautf8
 ```
 
-Then nerdtool for the bar at the top (auto-hide menu bar in el capitan).
-
-All my nerdtool exports are for 1440, so you may have to relocate them.
-
-My nerdtool fork has some hack to make nerdtool switch (~90%) of the time, when
-you plug in an external monitor.
-
-I'm working on a basic swift app to solve all the monitor issues I've had with nerdtool.
-
-NeekTool… Coming soon…
-
 ## Dependencies
 
 - nerdtool (top bar)
 - mjolnir
   - window snapping/management
-  - nerdtool (focused window widget)
-  - nerdtool (volume state widget)
-- shell
-  - nerdtool (date n time widget)
-  - nerdtool (net speeds widget)
-  - nerdtool (cpu usage widget)
-  - nerdtool (battery widget)
-- osx-cpu-temp
-  - nerdtool (cpu temp widget)
+  - tmux (volume state widget)
+- shell (for tmux bar)
+  - date n time widget
+  - net speeds widget
+  - cpu usage widget
+  - battery widget
 - iterm2 beta
   - borderless window option
 - zsh
