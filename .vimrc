@@ -56,6 +56,10 @@ set wildmode=longest,list,full
 set mouse=a
 set textwidth=79
 set colorcolumn=+1
+set undodir=~/.vim/undo
+set undofile
+set undolevels=1000
+set undoreload=10000                                         " maximum number lines to save for undo on a
 " }}}
 " Nvim {{{
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
