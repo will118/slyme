@@ -18,6 +18,7 @@ let mapleader = ','
 :map <C-f> :FZF<CR>
 :map <C-g> :Goyo<CR>
 :map <C-s> :Ag<Space>
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
 " }}}
 " Theme {{{
 set background=dark
@@ -95,4 +96,7 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 " Neomake
 autocmd! BufWritePost * Neomake
 let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}
+
+" Ag
+set grepprg=ag\ --nogroup\ --nocolor " Use ag over grep
 " }}}
