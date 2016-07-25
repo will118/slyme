@@ -56,6 +56,7 @@ set wildmenu                                                 " show a navigable 
 set wildmode=longest,list,full
 set mouse=a
 set textwidth=79
+set formatoptions-=t                                         " please no wrap!
 set colorcolumn=+1
 set undodir=~/.vim/undo
 set undofile

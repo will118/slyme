@@ -12,6 +12,7 @@ HISTFILE=~/.zhistory
 HISTSIZE=SAVEHIST=10000
 setopt sharehistory
 setopt extendedhistory
+setopt HIST_IGNORE_SPACE
 
 # general
 export EDITOR=nvim
