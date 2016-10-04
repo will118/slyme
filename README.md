@@ -77,7 +77,13 @@ luarocks install mjolnir.hotkey
 luarocks install mjolnir._asm.sys.audiodevice
 luarocks install mjolnir._asm.ipc
 luarocks install luautf8
+luarocks install mjolnir.fnutils
+luarocks install mjolnir.geometry
+luarocks install mjolnir.screen
+luarocks install mjolnir.keycodes
 ```
+
+p.s. updating macOS seems to blow away the `/usr/local/lib` folder that luarocks uses so I have to reinstall these dependencies sometimes.
 
 ## Dependencies
 
