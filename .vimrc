@@ -7,18 +7,21 @@ Plug 'benekastah/neomake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-sneak'
+Plug 'darfink/vim-plist'
 call plug#end()
 " }}}
 " Keybinds {{{
 let mapleader = ','
 :map <C-f> :FZF<CR>
 :map <C-g> :Goyo<CR>
-:map <C-s> :Ag<Space>
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+:map <C-s> :Ack!<Space>
 " }}}
 " Theme {{{
 set background=dark
@@ -97,7 +100,3 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 " Neomake
 autocmd! BufWritePost * Neomake
 let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}
-
-" Ag
-set grepprg=ag\ --nogroup\ --nocolor " Use ag over grep
-" }}}

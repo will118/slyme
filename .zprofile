@@ -1,5 +1,4 @@
 # my werid aliases
-#alias cat="ccat --bg=dark"
 alias reddy="redis-server /usr/local/etc/redis.conf"
 alias vi="vim"
 alias vim="nvim"
@@ -9,11 +8,7 @@ alias rimraf="rm -rf"
 alias ag="ag --color-path \"1;34\" --color-line-number \"3;34\""
 alias pizza="~/pizza/pizza.sh"
 alias jj="pbpaste | jq ."
-alias maan="man"
-alias maaan="man"
-alias maaaan="man"
-alias maaaaan="man"
-alias maaaaaan="man"
+alias s="ssh"
 
 # 3rd party functions
 eval $(thefuck --alias)
@@ -34,6 +29,14 @@ mkky () {
   then
       mkdir "$1" && cd "$1"
   fi
+}
+
+px () {
+  pbpaste | $@ | pbcopy
+}
+
+got() {
+  cd $(mktemp -d)
 }
 
 proxy() {
