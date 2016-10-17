@@ -31,6 +31,7 @@ function speakerstate()
   if ok then
     return value .. '#[default]'
   else
+    -- possibly broken behviour now I've fixed sys/audiodevices
     return '#[fg=colour69]' .. 'HDMI' .. '#[default]'
   end
 end
@@ -91,17 +92,12 @@ function resizeto(fullwidth, rightside)
   end
 end
 
-function killcitations()
-  os.execute ("killall Citations")
-end
-
 local shortcuts = {
   R = function() return resizeto(true) end,
   W = function() return resizeto(false, false) end,
   E = function() return resizeto(false, true) end,
   Z = mjolnir.reload,
-  C = centerandshrink,
-  f9 = killcitations
+  C = centerandshrink
 }
 
 for key, func in pairs(shortcuts) do

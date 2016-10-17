@@ -12,6 +12,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'darfink/vim-plist'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'mhartington/deoplete-typescript'
 call plug#end()
 " }}}
 " Keybinds {{{
@@ -22,6 +25,9 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 :map <C-s> :Ack!<Space>
+:map <C-y> r<C-v>u2713
+:map <C-n> r<C-v>u2717
+let NERDTreeMapHelp='<f1>' " cus reverse search
 " }}}
 " Theme {{{
 set background=dark
@@ -87,6 +93,10 @@ else
 endif
 " }}}
 " Plugin settings {{{
+
+" Enable deoplete at startup
+let g:deoplete#enable_at_startup = 1
+
 " Sneak
 let g:sneak#use_ic_scs = 1
 let g:sneak#s_next = 1

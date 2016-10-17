@@ -23,7 +23,7 @@ export NVM_DIR="/Users/will/.nvm"
 source /usr/local/share/chruby/chruby.sh
 chruby ruby-2.2.2
 
-# my functions
+# makes a folder called $1 and cds to it
 mkky () {
   if [ ! -z "$1" ]
   then
@@ -31,19 +31,30 @@ mkky () {
   fi
 }
 
+# mutates the clipboard
 px () {
   pbpaste | $@ | pbcopy
 }
 
+# goes-to a temp directory
 got() {
   cd $(mktemp -d)
 }
 
+# opens the clipboard (html) in chrome
+pot() {
+  TEMP_FILE=$(mktemp)
+  pbpaste > $TEMP_FILE
+  open -a Google\ Chrome $TEMP_FILE
+}
+
+# opens a SSH socks tunnel to $1
 proxy() {
   sudo networksetup -setsocksfirewallproxystate wi-fi on && ssh -N -D 8080 $1
   sudo networksetup -setsocksfirewallproxystate wi-fi off
 }
 
+# watches $1 and does $2 when something changes
 watchy () {
   fswatch -0 $1 | xargs -0 -n 1 -I {} $2 {}
 }
