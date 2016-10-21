@@ -8,24 +8,19 @@ local utf8 = require 'lua-utf8'
 local networking = require "mjolnir._asm.sys.networking"
 local filesize = require 'filesize'
 
-local oldstats = networking.getstats()
-local i = 0
+-- settings
+local interfacename = "en0" -- interface for netspeeds
+--
 
-local cacheamount = 3
-
+local oldstats = networking.getstats(interfacename)
 -- called externally by tmux.sh for tmux status
 function netspeeds()
-  local newstats = networking.getstats("en0")
+  local newstats = networking.getstats(interfacename)
   local bytesin = newstats.ibytes - oldstats.ibytes
   local bytesout = newstats.obytes - oldstats.obytes
   local usecondssince = newstats.time_usec - oldstats.time_usec
 
-  if i == cacheamount then
-    oldstats = newstats
-    i = 0
-  else
-    i = i + 1
-  end
+  oldstats = newstats
 
   local secondssince = usecondssince / 1000000
   local bytesinpersecond = bytesin / secondssince
