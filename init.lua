@@ -5,27 +5,41 @@ local fnutils = require "mjolnir.fnutils"
 local audiodevice = require "mjolnir._asm.sys.audiodevice"
 local ipc = require "mjolnir._asm.ipc"
 local utf8 = require 'lua-utf8'
+local networking = require "mjolnir._asm.sys.networking"
+local filesize = require 'filesize'
 
--- text: input string
--- colors: array of escape code numbers
--- endindex: where the text will be trimmed (the most faded part)
-function constanttextansigradient(text, colors, endindex)
-  local utext = utf8.escape(text)
-  local trimmed = utf8.sub(utext, 1, endindex)
-  local charcount = 5
-  local charindex = 1
-  local outputstring = ""
+local oldstats = networking.getstats()
+local i = 0
 
-  for i = 1, #colors do
-    local color = colors[i]
-    local slice = utf8.sub(trimmed, charindex, charindex + charcount)
-    charindex = charindex + charcount + 1
-    outputstring = outputstring .. string.format("\27[%dm%s", color, slice)
+local cacheamount = 3
+
+-- called externally by tmux.sh for tmux status
+function netspeeds()
+  local newstats = networking.getstats("en0")
+  local bytesin = newstats.ibytes - oldstats.ibytes
+  local bytesout = newstats.obytes - oldstats.obytes
+  local usecondssince = newstats.time_usec - oldstats.time_usec
+
+  if i == cacheamount then
+    oldstats = newstats
+    i = 0
+  else
+    i = i + 1
   end
 
-  return outputstring
+  local secondssince = usecondssince / 1000000
+  local bytesinpersecond = bytesin / secondssince
+  local bytesoutpersecond = bytesout / secondssince
+  if (bytesinpersecond < 1000) and (bytesoutpersecond < 1000) then
+    return "#[fg=colour249]0.0KBs 0.0KBs#[default]"
+  else
+    local downspeed = filesize(bytesinpersecond, { spacer = '' })
+    local upspeed = filesize(bytesoutpersecond, { spacer = '' })
+    return "#[fg=colour249]" ..  downspeed .. "s " .. upspeed  .. "s#[default]"
+  end
 end
 
+-- called externally by tmux.sh for tmux status
 function speakerstate()
   local ok, value = pcall(speakerinfo)
   if ok then

@@ -81,6 +81,7 @@ luarocks install mjolnir.fnutils
 luarocks install mjolnir.geometry
 luarocks install mjolnir.screen
 luarocks install mjolnir.keycodes
+luarocks install lua-filesize
 ```
 
 p.s. updating macOS seems to blow away the `/usr/local/lib` folder that luarocks uses so I have to reinstall these dependencies sometimes.
