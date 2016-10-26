@@ -13,8 +13,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'darfink/vim-plist'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'Shougo/deoplete.nvim'
-Plug 'mhartington/deoplete-typescript'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Quramy/tsuquyomi'
 call plug#end()
 " }}}
 " Keybinds {{{
@@ -71,6 +71,7 @@ set undodir=~/.vim/undo
 set undofile
 set undolevels=1000
 set undoreload=10000                                         " maximum number lines to save for undo on a
+set completeopt-=preview
 " }}}
 " Nvim {{{
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -107,6 +108,10 @@ let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinSize=20
 nnoremap <leader>d :NERDTreeToggle<CR>
 
+" tsuquyomi
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+
 " Neomake
 autocmd! BufWritePost * Neomake
+let g:neomake_typescript_enabled_makers = [] " use tsuquyomi
 let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}
