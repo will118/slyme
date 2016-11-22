@@ -1,0 +1,4 @@
+[submodule "pure"]
+	path = pure
+	url = git@github.com:sindresorhus/pure.git
+	branch = master

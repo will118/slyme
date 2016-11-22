@@ -2,26 +2,38 @@
 ```
 http://brew.sh/
 ```
-##Install Neovim
+##neovim
 ```
 brew tap neovim/neovim
-brew install neovim
-brew install --HEAD neovim # or this
+brew install --HEAD neovim
 ```
-##Install other stuff
+##other stuff
 ```
-brew install tmux zsh zsh-syntax-highlighting git coreutils
+brew install zsh zsh-syntax-highlighting git coreutils reattach-to-user-namespace
 ```
-##dotfiles
+##tmux
 ```
+brew install tmux --HEAD
 ln -s "$PWD/.tmux.conf" "$HOME/.tmux.conf"
-ln -s "$PWD/.vimrc" "$HOME/.vimrc"
+```
+##zsh
+```
 ln -s "$PWD/.zshrc" "$HOME/.zshrc"
 ln -s "$PWD/.zprofile" "$HOME/.zprofile"
 https://github.com/zsh-users/zsh-history-substring-search
-
-ln -s "$PWD/pure.zsh" "$HOME/.zfunctions/prompt_pure_setup"
-ln -s "$PWD/async.zsh" "$HOME/.zfunctions/async"
+mkdir "$HOME/.zfunctions"
+ln -s "$PWD/pure/pure.zsh" "$HOME/.zfunctions/prompt_pure_setup"
+ln -s "$PWD/pure/async.zsh" "$HOME/.zfunctions/async"
+```
+##vim stuffk
+```
+ln -s "$PWD/.vimrc" "$HOME/.vimrc"
+mkdir -p ~/.vim/colors
+mkdir ~/.config
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+https://github.com/chriskempson/base16-vim
+https://github.com/junegunn/vim-plug
 ```
 ##chsh
 ```
@@ -34,10 +46,14 @@ https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-Retina.ttf
 ```
 ##Terminal.app
 ```
+# basically https://github.com/vbwx/base16-terminal-app/blob/master/profiles/Harmonic16%20Dark.terminal
+# a few things changed
 Aardvark.terminal
 ```
 ##mjolnir
 ```
+mkdir ~/.mjolnir
+ln -s "$PWD/init.lua" "$HOME/.mjolnir/init.lua"
 https://github.com/sdegutis/mjolnir
 sudo chown -R $USER /usr/local
 luarocks install mjolnir.application

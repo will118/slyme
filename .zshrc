@@ -22,7 +22,7 @@ export LANG=en_US.UTF-8
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # zsh history (load before highlighting)
-source "$HOME/.dots/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "$HOME/slyme/zsh-history-substring-search.zsh"
 zmodload zsh/terminfo
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down

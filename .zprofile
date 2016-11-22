@@ -11,17 +11,12 @@ alias jj="pbpaste | jq ."
 alias s="ssh"
 
 # 3rd party functions
-eval $(thefuck --alias)
 [[ -s `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
 
 # node stuff
 export NODE_REPL_HISTORY_FILE="/Users/will/node_repl.log"
 export NVM_DIR="/Users/will/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# ruby
-source /usr/local/share/chruby/chruby.sh
-chruby ruby-2.2.2
 
 # makes a folder called $1 and cds to it
 mkky () {

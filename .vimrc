@@ -31,7 +31,7 @@ let NERDTreeMapHelp='<f1>' " cus reverse search
 " }}}
 " Theme {{{
 set background=dark
-colorscheme base16-ashes
+colorscheme base16-harmonic16-dark
 " }}}
 " General {{{
 filetype off
