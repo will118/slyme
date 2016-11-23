@@ -84,8 +84,8 @@ function resizeto(fullwidth, rightside)
     local desiredheight = screenframe.h
     local windowframe = win:frame()
 
-    local isiterm = win:application():title() == "Terminal"
-    local y_origin = (isiterm and 0) or DESIRED_Y_ORIGIN
+    local isterm = win:application():title() == "Terminal"
+    local y_origin = (isterm and 0) or DESIRED_Y_ORIGIN
 
     -- set values
     windowframe.w = desiredwidth

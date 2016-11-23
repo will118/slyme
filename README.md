@@ -68,6 +68,8 @@ luarocks install mjolnir.keycodes
 luarocks install lua-filesize
 # mjolnir module for netspeeds, make install
 https://github.com/will118/netspeed
+# mjolnir cli tool, for tmux status
+luarocks install mjolnir._asm.ipc.cli
 ```
 ##SIMBL stuff
 ```
