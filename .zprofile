@@ -1,7 +1,5 @@
 # my werid aliases
 alias reddy="redis-server /usr/local/etc/redis.conf"
-alias vi="vim"
-alias vim="nvim"
 alias watchtest="clear && fswatch -o test build | xargs -n1 -I{} npm test"
 alias mong="mongod --config /usr/local/etc/mongod.conf"
 alias rimraf="rm -rf"

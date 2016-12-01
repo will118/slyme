@@ -73,19 +73,12 @@ set undolevels=1000
 set undoreload=10000                                         " maximum number lines to save for undo on a
 set completeopt-=preview
 " }}}
-" Nvim {{{
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-" }}}
 " Hacks {{{
-if has('nvim')
-  nmap <BS> <C-W>h
-endif
-
 " Don't copy the contents of an overwritten selection.
 vnoremap p "_dP
 " }}}
 " Tmux {{{
-if exists('$TMUX')  " Support resizing in tmux
+if exists('$TMUX')  " cursors
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 else

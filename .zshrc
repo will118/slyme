@@ -20,6 +20,7 @@ export KEYTIMEOUT=1
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+stty -ixon # disable XON/XOFF flow control
 
 # zsh history (load before highlighting)
 source "$HOME/slyme/zsh-history-substring-search.zsh"

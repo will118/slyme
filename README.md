@@ -10,6 +10,7 @@ brew install --HEAD neovim
 ##other stuff
 ```
 brew install zsh zsh-syntax-highlighting git coreutils reattach-to-user-namespace
+https://github.com/creationix/nvm
 ```
 ##tmux
 ```
@@ -42,7 +43,7 @@ chsh
 ```
 ##Font
 ```
-https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-Retina.ttf
+https://github.com/tonsky/FiraCode/blob/master/distr/otf/FiraCode-Retina.otf
 ```
 ##Terminal.app
 ```
