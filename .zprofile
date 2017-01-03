@@ -54,3 +54,7 @@ watchy () {
 
 # fzf settings
 export FZF_DEFAULT_COMMAND='ag -g ""'
+
+# tex
+PATH="/usr/local/texlive/2016basic/bin/x86_64-darwin:$PATH"
+

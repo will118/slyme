@@ -2,11 +2,6 @@
 ```
 http://brew.sh/
 ```
-##neovim
-```
-brew tap neovim/neovim
-brew install --HEAD neovim
-```
 ##other stuff
 ```
 brew install zsh zsh-syntax-highlighting git coreutils reattach-to-user-namespace
@@ -26,13 +21,10 @@ mkdir "$HOME/.zfunctions"
 ln -s "$PWD/pure/pure.zsh" "$HOME/.zfunctions/prompt_pure_setup"
 ln -s "$PWD/pure/async.zsh" "$HOME/.zfunctions/async"
 ```
-##vim stuffk
+##vim stuff
 ```
 ln -s "$PWD/.vimrc" "$HOME/.vimrc"
 mkdir -p ~/.vim/colors
-mkdir ~/.config
-ln -s ~/.vim ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
 https://github.com/chriskempson/base16-vim
 https://github.com/junegunn/vim-plug
 ```
