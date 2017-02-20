@@ -85,7 +85,8 @@ function resizeto(fullwidth, rightside)
     local windowframe = win:frame()
 
     local isterm = win:application():title() == "Terminal"
-    local y_origin = (isterm and 0) or DESIRED_Y_ORIGIN
+    local isalacritty = win:application():title() == "alacritty"
+    local y_origin = ((isterm or isalacritty) and 0) or DESIRED_Y_ORIGIN
 
     -- set values
     windowframe.w = desiredwidth

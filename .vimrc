@@ -3,7 +3,6 @@
 " Plugins {{{
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
-Plug 'benekastah/neomake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
@@ -12,7 +11,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'darfink/vim-plist'
-Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Quramy/tsuquyomi'
 call plug#end()
@@ -104,8 +102,3 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 
 " tsuquyomi
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-
-" Neomake
-autocmd! BufWritePost * Neomake
-let g:neomake_typescript_enabled_makers = [] " use tsuquyomi
-let g:neomake_warning_sign={'text': '⚠', 'texthl': 'NeomakeErrorMsg'}

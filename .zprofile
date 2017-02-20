@@ -7,6 +7,7 @@ alias ag="ag --color-path \"1;34\" --color-line-number \"3;34\""
 alias pizza="~/pizza/pizza.sh"
 alias jj="pbpaste | jq ."
 alias s="ssh"
+alias n="nohup sh -c 'alacritty' &"
 
 # 3rd party functions
 [[ -s `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
@@ -58,3 +59,8 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 # tex
 PATH="/usr/local/texlive/2016basic/bin/x86_64-darwin:$PATH"
 
+# rust
+PATH="$HOME/.cargo/bin:$PATH"
+
+# my bins
+PATH="$HOME/.bin:$PATH"
