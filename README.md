@@ -16,7 +16,7 @@ ln -s "$PWD/.tmux.conf" "$HOME/.tmux.conf"
 ```
 ln -s "$PWD/.zshrc" "$HOME/.zshrc"
 ln -s "$PWD/.zprofile" "$HOME/.zprofile"
-https://github.com/zsh-users/zsh-history-substring-search
+# already copied into this repo: https://github.com/zsh-users/zsh-history-substring-search
 mkdir "$HOME/.zfunctions"
 ln -s "$PWD/pure/pure.zsh" "$HOME/.zfunctions/prompt_pure_setup"
 ln -s "$PWD/pure/async.zsh" "$HOME/.zfunctions/async"
