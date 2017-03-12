@@ -13,6 +13,13 @@ Plug 'justinmk/vim-sneak'
 Plug 'darfink/vim-plist'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Quramy/tsuquyomi'
+Plug 'trevordmiller/nova-vim'
+" Nova suggests these:
+Plug 'mxw/vim-jsx'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+"
 call plug#end()
 " }}}
 " Keybinds {{{
@@ -29,7 +36,9 @@ let NERDTreeMapHelp='<f1>' " cus reverse search
 " }}}
 " Theme {{{
 set background=dark
-colorscheme base16-harmonic16-dark
+colorscheme nova
+execute "set t_8f=\e[38;2;%lu;%lu;%lum"
+execute "set t_8b=\e[48;2;%lu;%lu;%lum"
 " }}}
 " General {{{
 filetype off
