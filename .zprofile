@@ -6,6 +6,7 @@ alias rimraf="rm -rf"
 alias ag="ag --color-path \"1;34\" --color-line-number \"3;34\""
 alias pizza="~/pizza/pizza.sh"
 alias jj="pbpaste | jq ."
+alias toil="toilet --metal --font mono12 -w 150"
 alias s="ssh"
 alias n="nohup sh -c 'alacritty' &"
 
@@ -33,6 +34,11 @@ px () {
 # goes-to a temp directory
 got() {
   cd $(mktemp -d)
+}
+
+# gitignores
+gi() {
+  curl -L -s https://www.gitignore.io/api/$@
 }
 
 # opens the clipboard (html) in chrome

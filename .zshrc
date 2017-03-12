@@ -15,7 +15,7 @@ setopt extendedhistory
 setopt HIST_IGNORE_SPACE
 
 # general
-export EDITOR=nvim
+export EDITOR=vim
 export KEYTIMEOUT=1
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8

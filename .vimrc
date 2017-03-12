@@ -10,9 +10,7 @@ Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-sneak'
-Plug 'darfink/vim-plist'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Quramy/tsuquyomi'
 Plug 'trevordmiller/nova-vim'
 " Nova suggests these:
 Plug 'mxw/vim-jsx'
