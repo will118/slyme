@@ -44,33 +44,33 @@ custom_cursor_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x0B1C2C'
-    foreground: '0xeaeaea'
+    background: '0x3c4c55'
+    foreground: '0xc5d4dd'
   cursor:
-    background: '0xffffff'
-    foreground: '0x000000'
+    background: '0x7fc1ca'
+    foreground: '0x3c4c55'
 
   # Normal colors
   normal:
-    black:   '0x0B1C2C'
-    red:     '0xBF8B56'
-    green:   '0x56BF8B'
-    yellow:  '0x8BBF56'
-    blue:    '0x8B56BF'
-    magenta: '0xBF568B'
-    cyan:    '0x568BBF'
-    white:   '0xCBD6E2'
+    black:   '0x3c4c55'
+    red:     '0xdf8c8c'
+    green:   '0xa8ce93'
+    yellow:  '0xdada93'
+    blue:    '0x83afe5'
+    magenta: '0x9a93e1'
+    cyan:    '0x7fc1ca'
+    white:   '0xc5d4dd'
 
   # Bright colors
   bright:
-    black:   '0x627E99'
-    red:     '0xBFBF56'
-    green:   '0x223B54'
-    yellow:  '0x405C79'
-    blue:    '0xAABCCE'
-    magenta: '0xE5EBF1'
-    cyan:    '0xBF5656'
-    white:   '0xF7F9FB'
+    black:   '0x899ba6'
+    red:     '0xf2c38f'
+    green:   '0xa8ce93'
+    yellow:  '0xdada93'
+    blue:    '0x83afe5'
+    magenta: '0xd18ec2'
+    cyan:    '0x7fc1ca'
+    white:   '0xe6eef3'
 
 # Key bindings
 #
