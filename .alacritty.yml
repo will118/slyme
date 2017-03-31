@@ -44,11 +44,11 @@ custom_cursor_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x3c4c55'
+    background: '0x2c2c2c'
     foreground: '0xc5d4dd'
   cursor:
     background: '0x7fc1ca'
-    foreground: '0x3c4c55'
+    foreground: '0x2c2c2c'
 
   # Normal colors
   normal:
@@ -71,6 +71,10 @@ colors:
     magenta: '0xd18ec2'
     cyan:    '0x7fc1ca'
     white:   '0xe6eef3'
+
+visual_bell:
+  animation: EaseOutExpo
+  duration: 0
 
 # Key bindings
 #

@@ -3,20 +3,15 @@
 " Plugins {{{
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
+Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
-Plug 'justinmk/vim-sneak'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'trevordmiller/nova-vim'
-" Nova suggests these:
-Plug 'mxw/vim-jsx'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript'
 "
 call plug#end()
 " }}}
@@ -96,10 +91,6 @@ endif
 
 " Enable deoplete at startup
 let g:deoplete#enable_at_startup = 1
-
-" Sneak
-let g:sneak#use_ic_scs = 1
-let g:sneak#s_next = 1
 
 " NERDTree
 let g:NERDSpaceDelims=1

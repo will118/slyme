@@ -70,3 +70,6 @@ PATH="$HOME/.cargo/bin:$PATH"
 
 # my bins
 PATH="$HOME/.bin:$PATH"
+
+# go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
