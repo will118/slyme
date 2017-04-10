@@ -11,7 +11,8 @@ Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'trevordmiller/nova-vim'
+Plug 'will118/nova-vim', { 'branch': 'wb-changes' }
+Plug 'Quramy/tsuquyomi'
 "
 call plug#end()
 " }}}

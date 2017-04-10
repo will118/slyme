@@ -2,7 +2,6 @@
 alias reddy="redis-server /usr/local/etc/redis.conf"
 alias watchtest="clear && fswatch -o test build | xargs -n1 -I{} npm test"
 alias mong="mongod --config /usr/local/etc/mongod.conf"
-alias rimraf="rm -rf"
 alias ag="ag --color-path \"1;34\" --color-line-number \"3;34\""
 alias pizza="~/pizza/pizza.sh"
 alias jj="pbpaste | jq ."
