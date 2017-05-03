@@ -4,7 +4,6 @@ local window = require "mjolnir.window"
 local fnutils = require "mjolnir.fnutils"
 local audiodevice = require "mjolnir._asm.sys.audiodevice"
 local ipc = require "mjolnir._asm.ipc"
-local utf8 = require 'lua-utf8'
 local networking = require "mjolnir._asm.sys.networking"
 local filesize = require 'filesize'
 

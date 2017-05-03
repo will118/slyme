@@ -70,5 +70,8 @@ PATH="$HOME/.cargo/bin:$PATH"
 # my bins
 PATH="$HOME/.bin:$PATH"
 
+# haskell xD
+PATH=Users/will/.local/bin:$PATH
+
 # go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin

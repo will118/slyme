@@ -53,7 +53,6 @@ luarocks install mjolnir.application
 luarocks install mjolnir.hotkey
 luarocks install mjolnir._asm.sys.audiodevice
 luarocks install mjolnir._asm.ipc
-luarocks install luautf8
 luarocks install mjolnir.fnutils
 luarocks install mjolnir.geometry
 luarocks install mjolnir.screen

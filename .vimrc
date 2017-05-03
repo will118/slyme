@@ -2,7 +2,7 @@
 
 " Plugins {{{
 call plug#begin()
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -10,12 +10,12 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'will118/nova-vim', { 'branch': 'wb-changes' }
 Plug 'Quramy/tsuquyomi'
 "
 call plug#end()
 " }}}
+"
 " Keybinds {{{
 let mapleader = ','
 :map <C-f> :FZF<CR>
