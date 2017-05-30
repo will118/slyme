@@ -12,10 +12,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'will118/nova-vim', { 'branch': 'wb-changes' }
 Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'
 "
 call plug#end()
 " }}}
-"
 " Keybinds {{{
 let mapleader = ','
 :map <C-f> :FZF<CR>
@@ -89,9 +89,6 @@ else
 endif
 " }}}
 " Plugin settings {{{
-
-" Enable deoplete at startup
-let g:deoplete#enable_at_startup = 1
 
 " NERDTree
 let g:NERDSpaceDelims=1

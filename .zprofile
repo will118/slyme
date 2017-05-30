@@ -5,7 +5,7 @@ alias mong="mongod --config /usr/local/etc/mongod.conf"
 alias ag="ag --color-path \"1;34\" --color-line-number \"3;34\""
 alias pizza="~/pizza/pizza.sh"
 alias jj="pbpaste | jq ."
-alias toil="toilet --metal --font mono12 -w 150"
+alias toil="toilet --metal --font mono12 -w 250"
 alias s="ssh"
 alias n="nohup sh -c 'alacritty' &"
 
