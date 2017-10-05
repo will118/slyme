@@ -13,6 +13,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'will118/nova-vim', { 'branch': 'wb-changes' }
 Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
+Plug 'tpope/vim-surround'
+Plug 'hashivim/vim-terraform'
+Plug 'itchyny/lightline.vim'
 "
 call plug#end()
 " }}}
@@ -98,3 +101,15 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 
 " tsuquyomi
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+
+" lightline
+let g:lightline = {
+      \ 'colorscheme': 'Tomorrow_Night_Eighties',
+      \ 'inactive': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'helloworld' ] ]
+      \ },
+      \ }
+
+" goyo
+let g:goyo_width = 100
