@@ -11,11 +11,9 @@ Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'will118/nova-vim', { 'branch': 'wb-changes' }
-Plug 'Quramy/tsuquyomi'
-Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-surround'
-Plug 'hashivim/vim-terraform'
 Plug 'itchyny/lightline.vim'
+Plug 'Quramy/tsuquyomi'
 "
 call plug#end()
 " }}}
@@ -48,7 +46,7 @@ set autoread                                                 " reload files when
 set hlsearch
 set backspace=2                                              " Fix broken backspace in some setups
 set backupcopy=yes                                           " see :help crontab
-set clipboard=unnamed                                        " yank and paste with the system clipboard
+set clipboard=unnamedplus
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
 set expandtab                                                " expand tabs to spaces
@@ -98,10 +96,9 @@ let g:NERDSpaceDelims=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinSize=20
 nnoremap <leader>d :NERDTreeToggle<CR>
-
-" tsuquyomi
+let g:tsuquyomi_completion_detail = 1
+autocmd FileType typescript setlocal completeopt+=menu,preview
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-
 " lightline
 let g:lightline = {
       \ 'colorscheme': 'Tomorrow_Night_Eighties',
