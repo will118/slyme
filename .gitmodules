@@ -2,3 +2,6 @@
 	path = pure
 	url = git@github.com:sindresorhus/pure.git
 	branch = master
+[submodule "zsh-history-substring-search"]
+	path = zsh-history-substring-search
+	url = git@github.com:zsh-users/zsh-history-substring-search.git

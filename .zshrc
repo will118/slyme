@@ -21,7 +21,11 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 stty -ixon # disable XON/XOFF flow control
 
-# zsh history (load before highlighting)
+# styling
+export LS_COLORS='fi=00:di=00;34:ln=00;36:ex=00;91:';
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# zsh history (load after highlighting)
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 zmodload zsh/terminfo
 bindkey '^[[A' history-substring-search-up
@@ -29,16 +33,11 @@ bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-# styling
-export LS_COLORS='fi=00:di=00;34:ln=00;36:ex=00;91:';
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # aliases
 alias ls='ls -F --color=auto'
 
 # tmux
 PS=1"$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.zprofile
