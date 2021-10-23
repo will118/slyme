@@ -10,9 +10,9 @@ ln -s "$PWD/.zprofile" "$HOME/.zprofile"
 ```
 
 ```
-mkdir "$HOME/.zfunctions"
-ln -s "$PWD/pure/pure.zsh" "$HOME/.zfunctions/prompt_pure_setup"
-ln -s "$PWD/pure/async.zsh" "$HOME/.zfunctions/async"
+mkdir -p "$HOME/.zsh"
+ln -s "$PWD/pure" "$HOME/.zsh/pure"
+ln -s "$PWD/zsh-history-substring-search" "$HOME/.zsh/zsh-history-substring-search"
 ```
 
 ## vim stuff

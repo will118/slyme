@@ -1,5 +1,5 @@
 # load pure stuff
-fpath+=("$HOME/.zsh/pure")
+fpath+=$HOME/.zsh/pure
 autoload -U promptinit && promptinit
 prompt pure
 
@@ -26,7 +26,7 @@ export LS_COLORS='fi=00:di=00;34:ln=00;36:ex=00;91:';
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zsh history (load after highlighting)
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 zmodload zsh/terminfo
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -41,3 +41,5 @@ alias ls='ls -F --color=auto'
 PS=1"$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 source ~/.zprofile
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
