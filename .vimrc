@@ -4,16 +4,18 @@
 call plug#begin()
 " Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
-Plug 'will118/nova-vim', { 'branch': 'wb-changes' }
+" Plug 'will118/nova-vim', { 'branch': 'wb-changes' }
 Plug 'tpope/vim-surround'
 Plug 'itchyny/lightline.vim'
 Plug 'Quramy/tsuquyomi'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "
 call plug#end()
 " }}}
@@ -27,13 +29,19 @@ endif
 :map <C-s> :Ack!<Space>
 :map <C-y> r<C-v>u2713
 :map <C-n> r<C-v>u2717
+
+:nnoremap <silent> <leader>f :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
 let NERDTreeMapHelp='<f1>' " cus reverse search
 " }}}
 " Theme {{{
+" set Vim-specific sequences for RGB colors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+" fixes glitch? in colors when using vim with tmux
 set background=dark
-colorscheme nova
-execute "set t_8f=\e[38;2;%lu;%lu;%lum"
-execute "set t_8b=\e[48;2;%lu;%lu;%lum"
+colorscheme dracula
 " }}}
 " General {{{
 filetype off
@@ -108,5 +116,71 @@ let g:lightline = {
       \ },
       \ }
 
+let g:ale_pattern_options = {
+\   '.*\.java$': {'ale_enabled': 0},
+\   '.*\.c$': {'ale_enabled': 0},
+\   '.*\.h$': {'ale_enabled': 0},
+\   '.*\.rs$': {'ale_enabled': 0},
+\}
+
 " goyo
 let g:goyo_width = 100
+
+set hidden
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=1
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+if has('patch8.1.1068')
+  " Use `complete_info` if your (Neo)Vim version supports it.
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
