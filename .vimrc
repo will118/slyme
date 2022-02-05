@@ -2,12 +2,15 @@
 
 " Plugins {{{
 call plug#begin()
-Plug 'w0rp/ale'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'dense-analysis/ale'
+Plug 'cespare/vim-toml'
+"Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'shaunsingh/nord.nvim'
+Plug 'Shatur/neovim-ayu' " or other package manager
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'mileszs/ack.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 Plug 'itchyny/lightline.vim'
@@ -19,25 +22,19 @@ call plug#end()
 let mapleader = ','
 :map <C-f> :FZF<CR>
 :map <C-g> :Goyo<CR>
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-:map <C-s> :Ack!<Space>
+:map <C-s> :Rg<Space>
 :map <C-y> r<C-v>u2713
 :map <C-n> r<C-v>u2717
-
-:nnoremap <silent> <leader>f :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 let NERDTreeMapHelp='<f1>' " cus reverse search
 " }}}
 " Theme {{{
 " set Vim-specific sequences for RGB colors
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" set termguicolors
-" fixes glitch? in colors when using vim with tmux
-set background=dark
-colorscheme dracula
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+colorscheme ayu-mirage
+
 " }}}
 " General {{{
 filetype off
@@ -62,6 +59,7 @@ set listchars=tab:▸\ ,trail:▫
 set number                                                   " show line numbers
 set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
 set ruler                                                    " show where you are
+" set spell
 set scrolloff=3                                              " show context above/below cursorline
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
@@ -78,7 +76,8 @@ set undodir=~/.vim/undo
 set undofile
 set undolevels=1000
 set undoreload=10000                                         " maximum number lines to save for undo on a
-set completeopt-=preview
+" set completeopt-=preview
+set completeopt=menu,menuone,preview,noselect,noinsert
 " }}}
 " Hacks {{{
 " Don't copy the contents of an overwritten selection.
@@ -112,3 +111,13 @@ let g:lightline = {
 
 " goyo
 let g:goyo_width = 100
+
+
+nnoremap <leader>t :ALEHover<CR>
+nnoremap <leader>gd :ALEGoToDefinition<CR>
+
+set omnifunc=ale#completion#OmniFunc
+let g:ale_floating_preview = 1
+let g:ale_completion_enabled = 1
+let g:ale_rust_cargo_use_clippy = 1
+let g:ale_linters = {'rust': ['analyzer', 'rustfmt', 'cargo']}

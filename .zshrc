@@ -15,10 +15,10 @@ setopt extendedhistory
 setopt HIST_IGNORE_SPACE
 
 # general
-export EDITOR=vim
+export EDITOR=nvim
 export KEYTIMEOUT=1
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+export LC_ALL=en_GB.UTF-8
+export LANG=en_GB.UTF-8
 stty -ixon # disable XON/XOFF flow control
 
 # styling
@@ -28,11 +28,12 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # zsh history (load after highlighting)
 source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 zmodload zsh/terminfo
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-
 
 # aliases
 alias ls='ls -F --color=auto'
