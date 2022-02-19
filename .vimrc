@@ -30,8 +30,8 @@ let NERDTreeMapHelp='<f1>' " cus reverse search
 " }}}
 " Theme {{{
 " set Vim-specific sequences for RGB colors
-"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 colorscheme ayu-mirage
 
@@ -121,3 +121,4 @@ let g:ale_floating_preview = 1
 let g:ale_completion_enabled = 1
 let g:ale_rust_cargo_use_clippy = 1
 let g:ale_linters = {'rust': ['analyzer', 'rustfmt', 'cargo']}
+let g:ale_fixers = {'rust': ['rustfmt']}
