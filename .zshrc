@@ -23,7 +23,7 @@ stty -ixon # disable XON/XOFF flow control
 
 # styling
 export LS_COLORS='fi=00:di=00;34:ln=00;36:ex=00;91:';
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zsh history (load after highlighting)
 source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
